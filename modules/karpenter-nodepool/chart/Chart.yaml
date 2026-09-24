@@ -1,0 +1,11 @@
+apiVersion: v2
+name: karpenter-nodepool
+description: >-
+  Carrier chart for one Karpenter EC2NodeClass + NodePool pair. It holds no
+  logic: Terraform builds the two objects and passes them in as .Values.manifests.
+  It exists only so the objects reach the cluster through Helm, which resolves
+  CRDs at apply time, instead of through kubernetes_manifest, which resolves
+  them at plan time and therefore cannot plan against a cluster whose Karpenter
+  CRDs do not exist yet.
+type: application
+version: 1.0.0

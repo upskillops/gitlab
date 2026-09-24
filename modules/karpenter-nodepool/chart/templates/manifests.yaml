@@ -1,0 +1,9 @@
+{{- /*
+Render whatever Terraform passed, untouched. Keeping every decision on the
+Terraform side means this chart never needs editing when a NodePool field
+changes.
+*/ -}}
+{{- range .Values.manifests }}
+---
+{{ toYaml . }}
+{{- end }}
